@@ -9,4 +9,5 @@ services:
     tty: true
     volumes:
       - ".:/root"
-      - "~/.ssh:/root/.ssh"
+      - "~/.ssh:/root/.ssh:ro"
+      - "~/.gitconfig:/root/.gitconfig:ro"

@@ -24,9 +24,15 @@ Third, open bash shell to enter the container.
 $ docker exec -it glso0215-app-1 /bin/bash
 ```
 
+After you finish the lab, stop and remove docker container.
+
+```
+$ docker-compose down
+```
+
 ## TODO
 
-- [] Set up git config email and name automatically.
+- [x] Set up git config email and name automatically.
 
 ## Contact
 
