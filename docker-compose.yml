@@ -1,0 +1,12 @@
+version: '2'
+services:
+  app:
+    image: glso0215
+    build:
+      context: .
+      dockerfile: Dockerfile
+    stdin_open: true
+    tty: true
+    volumes:
+      - ".:/root"
+      - "~/.ssh:/root/.ssh"
