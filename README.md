@@ -21,8 +21,12 @@ $ docker-compose up -d
 Third, open bash shell to enter the container.
 
 ```
-$ docker exec -it /bin/bash
+$ docker exec -it glso0215-app-1 /bin/bash
 ```
+
+## TODO
+
+- [] Set up git config email and name automatically.
 
 ## Contact
 
