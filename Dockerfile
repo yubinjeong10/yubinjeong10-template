@@ -8,4 +8,4 @@ RUN apk update && apk add --no-cache git vim openssh openssh-keygen python3 shad
 RUN npm install -g terminalizer
 
 # Set working directory
-WORKDIR /root
+WORKDIR /workspace

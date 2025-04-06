@@ -2,12 +2,13 @@ version: '2'
 services:
   app:
     image: glso0215
+    container_name: glso0215-app-1
     build:
       context: .
       dockerfile: Dockerfile
     stdin_open: true
     tty: true
     volumes:
-      - ".:/root"
+      - ".:/workspace"
       - "~/.ssh:/root/.ssh:ro"
       - "~/.gitconfig:/root/.gitconfig:ro"
