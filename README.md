@@ -2,21 +2,23 @@
 
 Author: Seonghyeon Lee
 
-This template is used for Open-sourced programming course.
+This template is used for open-sourced programming course.
 
-## How to use
-
-First, clone this repository.
+To do our lab, clone this repository first.
 
 ```
-$ git clone git@github.com:sh0416/glso0215-template.git
-$ cd glso0215-template
+git clone https://github.com/sh0416/glso0215-template.git
+cd glso0215-template
 ```
 
-Second, create an image with your personal information.
+## Build docker image and run container
+
+In our lab, we use docker and docker-compose to standardize our environment. So, you should install docker desktop in advance. You can install it from [here](https://www.docker.com/products/docker-desktop/).
+
+After clone this repository, create an image with your personal information.
 
 ```
-$ docker-compose build --build-arg NAME=$NAME --build-arg EMAIL=$EMAIL
+docker-compose build --build-arg NAME=$NAME --build-arg EMAIL=$EMAIL
 ```
 
 > **Warning**
@@ -25,26 +27,46 @@ $ docker-compose build --build-arg NAME=$NAME --build-arg EMAIL=$EMAIL
 Next, run docker container. (With `-d` option for running container background.)
 
 ```
-$ docker-compose up -d
+docker-compose up -d
 ```
 
 Next, open bash shell to enter the container.
 
 ```
-$ docker exec -it glso0215-app-1 /bin/bash
+docker exec -it glso0215-app-1 /bin/bash
 ```
 
-You can see the public key in the container. Add this public key into your Github account.
+## Git configuration
+
+During the image build process, your personal information has been added into your image. You should check it by printing the git configuration setting.
 
 ```
-$ cat ~/.ssh/id_rsa.pub
+git config list
+```
+
+**If the personal information is not properly added, you must ask the instructor to handle this issue.** Otherwise, you will get zero point.
+
+```
+user.name=${USER}
+user.email=${EMAIL}
+core.pager=
+```
+
+Next, you can see the public key in the container. Add this public key into your Github account.
+
+```
+cat ~/.ssh/id_rsa.pub
 ```
 
 Check whether you can push your branch into `glso0215-lab` repository.
 
 ```
-$ git push origin ${USER}/master
+git clone git@github.com:sh0416/glso0215-lab.git
+git checkout -b ${USER}/master
+git push origin ${USER}/master
 ```
+
+## Wrap up
 
 After you finish the lab, stop and remove docker container.
 

@@ -17,7 +17,11 @@ ARG USER
 ARG EMAIL
 
 # Setup git config
-RUN git config --global core.pager '' && git config --global user.name ${USER} && git config --global user.email ${EMAIL}
+RUN git config --global core.pager '' && \
+    git config --global core.autocrlf false && \
+    git config --global core.eol lf && \
+    git config --global user.name ${USER} && \
+    git config --global user.email ${EMAIL}
 
 # Set working directory
 WORKDIR /workspace
