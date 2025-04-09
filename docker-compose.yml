@@ -10,5 +10,3 @@ services:
     tty: true
     volumes:
       - ".:/workspace"
-      - "~/.ssh:/root/.ssh:ro"
-      - "~/.gitconfig:/root/.gitconfig:ro"
