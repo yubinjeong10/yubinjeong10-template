@@ -2,10 +2,15 @@
 FROM node:22-alpine
 
 # Install Bash Shell
-RUN apk update && apk add --no-cache git vim openssh openssh-keygen python3 shadow bash && chsh -s /bin/bash
+RUN apk update && \
+    apk add --no-cache git git-lfs vim openssh openssh-keygen python3 shadow bash && \
+    chsh -s /bin/bash
 
 # Install terminalizer
 RUN npm install -g terminalizer
+
+# Embed .vimrc
+COPY .vimrc /root/.vimrc
 
 # Generate a ssh key (-q: quite, -t: encryption method, -N: passphrase, -f filename)
 RUN ssh-keygen -q -t rsa -N '' -f ~/.ssh/id_rsa
